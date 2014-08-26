@@ -11,30 +11,25 @@
 
 @interface ViewController () {
     NSArray *arr;
-    int i;
+    //int i;
 }
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated {
     
-    self.SongName.text = self.str;
-    
-    i = 0;
+        self.SongName.text = self.str;
     
     NSError *error = nil;
     
-    
     arr = [NSArray arrayWithObjects:@"Arctic Monkeys - Crying Lightning", @"The Black Keys - Tighten Up", @"Summer Of Haze - Pussy Juice", nil];
     
-    self.str = arr[i];
+    self.str = arr[_i];
     self.SongName.text = self.str;
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[i] ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[_i] ofType:@"mp3"]];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
@@ -50,17 +45,24 @@
         
         [self.currentTimeLabel sizeToFit];
         [self.audioPlayer prepareToPlay];
-        
-        
+
     }
-    
 }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    _i = 0;
+}
+    
+
 
 - (void) play {
     
     NSError *error = nil;
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[i] ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[_i] ofType:@"mp3"]];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
@@ -83,17 +85,17 @@
 }
 
 - (void) playNextSong {
-    i++;
+    _i++;
     
-    if(i>arr.count - 1) {
-        i = 0;
+    if(_i>arr.count - 1) {
+        _i = 0;
     }
     
-    self.str = arr[i];
+    self.str = arr[_i];
     self.SongName.text = self.str;
     
     NSError *error = nil;
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[i] ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[_i] ofType:@"mp3"]];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
@@ -121,17 +123,17 @@
 
 
 - (void) playPreviousSong {
-    i--;
+    _i--;
     
-    if(i<0) {
-        i = arr.count - 1;
+    if(_i<0) {
+        _i = arr.count - 1;
     }
     
-    self.str = arr[i];
+    self.str = arr[_i];
     self.SongName.text = self.str;
     
     NSError *error = nil;
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[i] ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:arr[_i] ofType:@"mp3"]];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     

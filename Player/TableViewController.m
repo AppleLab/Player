@@ -79,7 +79,12 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ViewController *vc = [self.navigationController.viewControllers objectAtIndex:0];
+    vc.str = arr[indexPath.row];
+    vc.i = indexPath.row;
+    [self.navigationController popToViewController:vc animated:YES];
+}
 
 
 /*

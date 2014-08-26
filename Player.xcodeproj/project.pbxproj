@@ -132,9 +132,9 @@
 				1A04C07219A621D5007E426B /* ViewController.h */,
 				1A04C07319A621D5007E426B /* ViewController.m */,
 				1A04C0A519A66C07007E426B /* Images-2.xcassets */,
-				1A04C06419A621D5007E426B /* Supporting Files */,
 				1AD51AFE19A8AC380001F2FE /* TableViewController.h */,
 				1AD51AFF19A8AC380001F2FE /* TableViewController.m */,
+				1A04C06419A621D5007E426B /* Supporting Files */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -227,6 +227,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1A04C05119A621D4007E426B;
 			productRefGroup = 1A04C05B19A621D5007E426B /* Products */;

@@ -31,6 +31,7 @@
 
 @property NSString *str;
 @property NSArray *arr;
+@property NSInteger i;
 
 - (NSString*)stringFromInterval:(NSTimeInterval)interval;
 - (void) updateSlider;
